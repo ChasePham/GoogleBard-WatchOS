@@ -13,6 +13,7 @@
 		7882A0302A378F5A00FDAD25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7882A02F2A378F5A00FDAD25 /* Assets.xcassets */; };
 		7882A0332A378F5A00FDAD25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7882A0322A378F5A00FDAD25 /* Preview Assets.xcassets */; };
 		7882A03E2A378FB200FDAD25 /* BardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7882A03D2A378FB200FDAD25 /* BardAPI.swift */; };
+		7882A0412A37CAAB00FDAD25 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7882A0402A37CAAB00FDAD25 /* OpenAISwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7882A0412A37CAAB00FDAD25 /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +132,9 @@
 			dependencies = (
 			);
 			name = "GoogleBardWatchOS Watch App";
+			packageProductDependencies = (
+				7882A0402A37CAAB00FDAD25 /* OpenAISwift */,
+			);
 			productName = "GoogleBardWatchOS Watch App";
 			productReference = 7882A0262A378F5400FDAD25 /* GoogleBardWatchOS Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +166,9 @@
 				Base,
 			);
 			mainGroup = 7882A0192A378F5300FDAD25;
+			packageReferences = (
+				7882A03F2A37CAAB00FDAD25 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+			);
 			productRefGroup = 7882A0212A378F5400FDAD25 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -442,6 +450,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7882A03F2A37CAAB00FDAD25 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7882A0402A37CAAB00FDAD25 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7882A03F2A37CAAB00FDAD25 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7882A01A2A378F5400FDAD25 /* Project object */;
 }
