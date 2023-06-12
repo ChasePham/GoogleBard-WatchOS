@@ -15,13 +15,23 @@ class BardAPI{
     
     private init(){}
     
+    private var client: OpenAISwift?
     
     public func setup(){
-        let client = OpenAISwift(authToken: api_key)
+        self.client = OpenAISwift(authToken: api_key)
     }
     
-    public func gettingResponse(text: String, completion: @escaping (Result<String,Error>) -> Void) {
-        
+    public func gettingResponse(tex: String, completion: @escaping (Result<String,Error>) -> Void) {
+        client?.sendCompletion(with: tex, completionHandler: {result in
+            switch result {
+            case .success (let model):
+                // This line may produce an error
+                let output = model.choices?.first?.text ?? ""
+                completion(.success(output))
+            case .failure (let error):
+                completion(.failure(error))
+            }
+        })
     }
     
 }
