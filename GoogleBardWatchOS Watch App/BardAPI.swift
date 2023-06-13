@@ -9,27 +9,27 @@ import OpenAISwift
 import Foundation
 
 
-class BardAPI{
-    let shared = BardAPI()
+
+final class BardAPI: ObservableObject {
     let api_key = ""
     
-    private init(){}
+    init(){}
     
     private var client: OpenAISwift?
     
     public func setup(){
-        self.client = OpenAISwift(authToken: api_key)
+        client = OpenAISwift(authToken: api_key)
     }
     
-    public func gettingResponse(tex: String, completion: @escaping (Result<String,Error>) -> Void) {
-        client?.sendCompletion(with: tex, completionHandler: {result in
+    public func gettingResponse(text: String, completion: @escaping (String) -> Void) {
+        client?.sendCompletion(with: text, maxTokens: 500, completionHandler: {result in
             switch result {
             case .success (let model):
                 // This line may produce an error
                 let output = model.choices?.first?.text ?? ""
-                completion(.success(output))
-            case .failure (let error):
-                completion(.failure(error))
+                completion(output)
+            case .failure:
+                break
             }
         })
     }
